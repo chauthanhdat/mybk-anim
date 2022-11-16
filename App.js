@@ -1,9 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useRef, useEffect } from 'react';
+import {ScrollView, Button, StyleSheet, View } from "react-native";
+import LottieView from 'lottie-react-native';
+import Lottie from "lottie-react-native";
 
-import Category from "./screens/components/Category";
+import Category from "./components/Category"
 
 export default function App() {
+  const animation = useRef(null);
+  useEffect(() => {
+  }, []);
+
   return (
     <View>
       <ScrollView scrollEventThrottle={16}>
@@ -26,23 +33,61 @@ export default function App() {
           </View>
         </View>
       </ScrollView>
+      <LottieView
+        autoPlay
+        ref={animation}
+        style={{
+          width: 200,
+          height: 200,
+          backgroundColor: '#eee',
+        }}
+        source={require('./animations/loading.json')}
+      />
+      {/* <View style={styles.buttonContainer}>
+        <Button
+          title="Restart Animation"
+          onPress={() => {
+            animation.current?.reset();
+            animation.current?.play();
+          }}
+        />
+      </View> */}
+    </View>
+  );
+
+  return (
+    <View style={styles.animationContainer}>
+      <LottieView
+        autoPlay
+        ref={animation}
+        style={{
+          width: 200,
+          height: 200,
+          backgroundColor: '#eee',
+        }}
+        source={require('./animations/loading.json')}
+      />
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Restart Animation"
+          onPress={() => {
+            animation.current?.reset();
+            animation.current?.play();
+          }}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  animationContainer: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
-  subject: {
-    width: 100,
-    height: 200,
-    backgroundColor: "#000",
-    borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
+  buttonContainer: {
+    paddingTop: 20,
   },
 });

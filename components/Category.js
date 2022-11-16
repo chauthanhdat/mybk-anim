@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Button, Alert } from "react-native";
-import Loading from "./Loading";
+
+
+// import Loading from "./loading";
 
 class Category extends Component {
     render() {
@@ -10,14 +12,10 @@ class Category extends Component {
                     <Text>{this.props.name}</Text>
                 </View>
                 <View>
-                    <Button onPress={this.anim} title="Add" color="#0000ff"/>
+                    {/* <Button onPress={Loading} title="Add" color="#0000ff"/> */}
                 </View>
             </View>
         );
-    }
-
-    anim() {
-        
     }
 }
 export default Category;
@@ -32,5 +30,5 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
 });
