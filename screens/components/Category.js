@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Button, Alert } from "react-native";
+import Loading from "./Loading";
 
 class Category extends Component {
     render() {
@@ -16,7 +17,7 @@ class Category extends Component {
     }
 
     anim() {
-        Alert.alert("OK");
+        
     }
 }
 export default Category;
